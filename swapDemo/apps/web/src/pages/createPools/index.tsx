@@ -160,7 +160,7 @@ const CreatePools = () => {
               Just Create Pools.
             </Heading>
             <Heading scale="md" color="text">
-              Create Your Pool With 0.2 BNB
+              Create Your Pool With 1 BNB
             </Heading>
           </Flex>
 
