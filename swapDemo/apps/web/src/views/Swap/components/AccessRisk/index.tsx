@@ -122,8 +122,8 @@ const AccessRiskComponent: React.FC<AccessRiskProps> = ({ token }) => {
     const hasRiskValue = bnbTigerCA === token.address
       ? TOKEN_RISK_T[TOKEN_RISK.VERY_LOW]
       : TOKEN_RISK_T[data.riskLevel];
-    if (!hasRiskValue) return
-    
+    if (!hasRiskValue) return null;
+
     return (
       <Flex justifyContent="flex-end">
         <div ref={targetRef} style={{ userSelect: 'none' }}>
