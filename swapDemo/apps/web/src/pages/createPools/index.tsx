@@ -101,8 +101,7 @@ const CreatePools = () => {
     if (contract === null) return;
     const checkFactoryOwner = async () => {
       const tempOwner = await contract._isFactoryOwner(account);
-      if (tempOwner) return;
-      else getCreatePoolFee()
+      if (!tempOwner) getCreatePoolFee()
     };
     const getCreatePoolFee = async () => {
       const tempFee = await contract.createPoolFee();

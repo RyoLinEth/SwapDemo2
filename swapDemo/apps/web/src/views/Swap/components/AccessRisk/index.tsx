@@ -117,22 +117,19 @@ const AccessRiskComponent: React.FC<AccessRiskProps> = ({ token }) => {
   )
 
   const bnbTigerCA = "0xAC68931B666E086E9de380CFDb0Fb5704a35dc2D";
-  const isBNBTiger = token.address.toLocaleLowerCase() === bnbTigerCA.toLocaleLowerCase() ? true : false;
 
   if (data) {
-    const hasRiskValue = TOKEN_RISK_T[data.riskLevel]
-    console.log(hasRiskValue)
-    if (!hasRiskValue) return null
+    const hasRiskValue = bnbTigerCA === token.address
+      ? TOKEN_RISK_T[TOKEN_RISK.VERY_LOW]
+      : TOKEN_RISK_T[data.riskLevel];
+    if (!hasRiskValue) return
+    
     return (
       <Flex justifyContent="flex-end">
         <div ref={targetRef} style={{ userSelect: 'none' }}>
           <Tag variant={data.riskLevel > TOKEN_RISK.MEDIUM ? 'failure' : 'primary'}>
             <Text bold small color="invertedContrast">
-              {
-                !isBNBTiger
-                  ? hasRiskValue
-                  : "No Risk"
-              }
+              {hasRiskValue}
             </Text>
             {tooltipVisible && tooltip}
             <Flex>
