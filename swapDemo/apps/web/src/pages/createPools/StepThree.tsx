@@ -28,6 +28,7 @@ const StepThree = (props) => {
     setIsRejected,
     setIsApproved,
     setIsCreated,
+    createPoolFee
   } = props
 
   const { theme } = useTheme()
@@ -119,9 +120,7 @@ const StepThree = (props) => {
     const sendingAmount = ethers.utils.parseUnits(`${requiredAmount()}`, decimal)
 
     //  創建礦池費用
-    // const createPoolFee = ethers.utils.parseUnits('0.2', 'ether')
-    const tempCreatePoolFee = await contract.createPoolFee();
-
+    const tempCreatePoolFee = ethers.utils.parseUnits(`${createPoolFee}`, 'ether')
     try {
       const result = await contract.deployPool(
         stakingTokenValue,

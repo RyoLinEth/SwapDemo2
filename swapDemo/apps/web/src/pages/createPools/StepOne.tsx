@@ -258,7 +258,7 @@ const StepOne = ({
                     endTime !== null &&
                     endTime > startTime && (
                       <Text bold>
-                        Required Amount : {(rewardPerBlock * (endTime - startTime)) / 1000} <br/>
+                        Required Amount : {(rewardPerBlock * (endTime - startTime)) / 1000} <br />
                         {(rewardPerBlock * (endTime - startTime)) / 1000 > data.balance
                           ? 'Not Enough Token'
                           : ''}

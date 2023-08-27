@@ -59,6 +59,7 @@ const CreatePools = () => {
   const [provider, setProvider] = useState(null)
   const [signer, setSigner] = useState(null)
   const [contract, setContract] = useState(null)
+  const [createPoolFee, setCreatePoolFee] = useState('0');
   // const [chainID, setChainID] = useState(null);
 
 
@@ -85,18 +86,40 @@ const CreatePools = () => {
     }
   }
 
+
+  const bigNumToNum = (number, decimal) => {
+    const tempFormattedNum = ethers.utils.formatUnits(`${number}`, decimal);
+    return tempFormattedNum;
+  }
+
   useEffect(() => {
     if (account !== null)
       updateEthers()
   }, [account, chain.chainId])
 
+  useEffect(() => {
+    if (contract === null) return;
+    const checkFactoryOwner = async () => {
+      const tempOwner = await contract._isFactoryOwner(account);
+      if (tempOwner) return;
+      else getCreatePoolFee()
+    };
+    const getCreatePoolFee = async () => {
+      const tempFee = await contract.createPoolFee();
+      const tempNumFee = bigNumToNum(tempFee, 18);
+      setCreatePoolFee(`${tempNumFee}`);
+    }
+    checkFactoryOwner();
+  }, [contract])
+
   const [goSteps, setGoSteps] = useState(0)
 
+  const defaultTimestamp = new Date().getTime();
   //  Step One
   const [stakingToken, setStakingToken] = useState(null)
   const [rewardToken, setRewardToken] = useState(null)
-  const [startTime, setStartTime] = useState(null)
-  const [endTime, setEndTime] = useState(null)
+  const [startTime, setStartTime] = useState(defaultTimestamp)
+  const [endTime, setEndTime] = useState(defaultTimestamp)
   const [rewardPerBlock, setRewardPerBlock] = useState(null)
 
   //  Step Two
@@ -248,6 +271,7 @@ const CreatePools = () => {
                       setIsRejected={setIsRejected}
                       setIsApproved={setIsApproved}
                       setIsCreated={setIsCreated}
+                      createPoolFee={createPoolFee}
                     />
                   </>
                 )}
