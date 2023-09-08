@@ -8,9 +8,11 @@ import { batch, useSelector } from 'react-redux'
 import { useAppDispatch } from 'state'
 import { setInitPoolsData } from 'state/pools'
 import { useActiveChainId } from 'hooks/useActiveChainId'
+
+import poolAddress from 'data/poolAddress'
+
 import TokenABI from './pools/ABI/TokenABI.json'
 import CreatePoolABI from './pools/ABI/CreatePool.json'
-import poolAddress from 'data/poolAddress'
 
 const CreatePoolContract = poolAddress.bsc
 const CreatePoolContractBSCTest = poolAddress.bscTest
