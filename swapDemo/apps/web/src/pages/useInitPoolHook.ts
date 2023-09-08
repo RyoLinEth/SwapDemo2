@@ -10,9 +10,10 @@ import { setInitPoolsData } from 'state/pools'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import TokenABI from './pools/ABI/TokenABI.json'
 import CreatePoolABI from './pools/ABI/CreatePool.json'
+import poolAddress from './poolAddress'
 
-const CreatePoolContract = '0xee5a18e00702257B979640eCDca708F64573A598'
-const CreatePoolContractBSCTest = '0x291219b7594bc72Ed3Ee7D3812DF2d8398Ab2379';
+const CreatePoolContract = poolAddress.bsc
+const CreatePoolContractBSCTest = poolAddress.bscTest
 
 const useInitPoolHook = () => {
   const dispatch = useAppDispatch()

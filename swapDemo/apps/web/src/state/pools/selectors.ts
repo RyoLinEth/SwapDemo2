@@ -71,6 +71,7 @@ export const poolsWithVaultSelector = createSelector(
     //   LockedEnd, // 锁仓模式，锁仓时间结束，可以取出
     //   AfterBurning, // 这个应该是结束锁仓
     // }
+    
     const lockedVaultPosition = getVaultPosition(deserializedLockedCakeVault.userData)
     // 是否灵活锁仓(随时可取)
     const hasFlexibleSideSharesStaked = deserializedFlexibleSideCakeVault.userData.userShares.gt(0)

@@ -38,10 +38,12 @@ import ErrorMessage from '../nfts/ErrorMessage'
 // import './Wizard.css'
 
 import CreatePoolABI from '../pools/ABI/CreatePool.json'
+
+import poolAddress from 'pages/poolAddress';
 // const pools = allPool.pools
 
-const createPoolContractBsctest = '0x291219b7594bc72Ed3Ee7D3812DF2d8398Ab2379'
-const createPoolContractBSC = '0xee5a18e00702257B979640eCDca708F64573A598'
+const createPoolContractBsctest = poolAddress.bscTest;
+const createPoolContractBSC = poolAddress.bsc;
 const headerHeight = '60px'
 const customHeadingColor = '#7645D9'
 const gradientStopPoint = `calc(${headerHeight} + 1px)`

@@ -54,24 +54,12 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
         <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
           <Flex flex="1" flexDirection="column" mr={['8px', 0]}>
             <Heading as="h1" scale="xxl" color="secondary" mb="24px">
-              {t('BNBTiger Pools')}
+              {t('Private Pools')}
             </Heading>
             <Heading scale="md" color="text">
-              {t('Just stake some tokens to earn.')}
-            </Heading>
-            <Heading scale="md" color="text">
-              {t('High APR.')}
+              {t('Here are some pools that are privately created')}
             </Heading>
           </Flex>
-
-          <Image
-            mx="auto"
-            mt="12px"
-            src="/images/decorations/bnbtiger.png"
-            alt="BNBTiger illustration"
-            width={192}
-            height={184.5}
-          />
         </Flex>
       </PageHeader>
       <Page>

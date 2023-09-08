@@ -103,6 +103,12 @@ const config: (
             // href: '/createPools',
             // supportChainIds: SUPPORT_ONLY_BSC,
           },
+          {
+            label: 'Private Pools',
+            href: '/privatePools',
+            // href: '/createPools',
+            // supportChainIds: SUPPORT_ONLY_BSC,
+          },
         ].map((item) => addMenuItemSupported(item, chainId)),
       },
       // {
