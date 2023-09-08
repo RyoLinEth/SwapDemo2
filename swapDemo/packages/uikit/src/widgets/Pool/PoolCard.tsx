@@ -94,7 +94,8 @@ export function PoolCard<T>({ pool, cardContent, aprRow, isStaked, cardFooter, t
           </div>
         )}
         <PoolCardHeader isStaking={isStaked} isFinished={isFinished && sousId !== 0}>
-          {totalStaked && totalStaked.gte(0) ? (
+          {totalStaked && totalStaked.gte(0) 
+          ? (
             <>
               <PoolCardHeaderTitle
                 title={isCakePool ? t("Manual") : t("Earn %asset%", { asset: earningToken?.symbol || "" })}

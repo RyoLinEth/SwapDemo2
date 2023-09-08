@@ -99,12 +99,7 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
                           // 池子顶部卡片右上角的代币头像
                           tokenPairImage={
                             //  先將圖片移除
-                            <Image
-                              src="/images/decorations/bnbtiger.png"
-                              alt="BNBTiger illustration"
-                              width={64}
-                              height={64}
-                            />
+                            <></>
                           }
                           // 卡片顶部的年利率
                           aprRow={<AprRow pool={pool} stakedBalance={pool?.userData?.stakedBalance} />}
