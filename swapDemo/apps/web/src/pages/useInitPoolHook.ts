@@ -10,14 +10,13 @@ import { setInitPoolsData } from 'state/pools'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import TokenABI from './pools/ABI/TokenABI.json'
 import CreatePoolABI from './pools/ABI/CreatePool.json'
-import poolAddress from './poolAddress'
+import poolAddress from 'data/poolAddress'
 
 const CreatePoolContract = poolAddress.bsc
 const CreatePoolContractBSCTest = poolAddress.bscTest
 
 const useInitPoolHook = () => {
   const dispatch = useAppDispatch()
-
   const chainId = useActiveChainId()
 
   //  偵測哪個鍊
