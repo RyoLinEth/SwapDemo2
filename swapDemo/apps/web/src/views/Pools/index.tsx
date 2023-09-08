@@ -76,7 +76,7 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
       </PageHeader>
       <Page>
         {
-          pools.length < 1 && 
+          pools.length < 1 &&
           <Message variant="warning">
             <MessageText>
               Loading Pools...<br />
@@ -98,57 +98,56 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
                   <Loading />
                 </Flex>
               )}
-              {viewMode === ViewMode.CARD ? (
+              {
+              viewMode === ViewMode.CARD 
+              ? (
                 <CardLayout>
-                  {chosenPools.map((pool) =>
-                    pool.vaultKey ? (
-                      // <CakeVaultCard key={pool.vaultKey} pool={pool} showStakedOnly={stakedOnly} />
-                      <></>
-                    ) : (
-                      <Pool.PoolCard<Token>
-                        key={pool.sousId}
-                        pool={pool}
-                        isStaked={Boolean(pool?.userData?.stakedBalance?.gt(0))}
-                        // 池子顶部卡片右上角的代币头像
-                        tokenPairImage={
-                          //  先將圖片移除
-                          <Image
-                            src="/images/decorations/bnbtiger.png"
-                            alt="BNBTiger illustration"
-                            width={64}
-                            height={64}
+                  {
+                    chosenPools.map(
+                      (pool) =>
+                        pool.vaultKey 
+                        ? (<></>) 
+                        : (
+                          <Pool.PoolCard<Token>
+                            key={pool.sousId}
+                            pool={pool}
+                            isStaked={Boolean(pool?.userData?.stakedBalance?.gt(0))}
+                            // 池子顶部卡片右上角的代币头像
+                            tokenPairImage={
+                              //  先將圖片移除
+                              <Image
+                                src="/images/decorations/bnbtiger.png"
+                                alt="BNBTiger illustration"
+                                width={64}
+                                height={64}
+                              />
+                            }
+                            // 卡片顶部的年利率
+                            aprRow={<AprRow pool={pool} stakedBalance={pool?.userData?.stakedBalance} />}
+                            cardContent={
+                              // 卡片主内容区,中间的一大串,不包括顶部的年利率
+                              account 
+                              ? (
+                                <CardActions pool={pool} stakedBalance={pool?.userData?.stakedBalance} />
+                              ) 
+                              : (
+                                <>
+                                  {/* 卡片主内容区的连接钱包按钮 */}
+                                  <Text mb="10px" textTransform="uppercase" fontSize="12px" color="textSubtle" bold>
+                                    {t('Start earning')}
+                                  </Text>
+                                  <ConnectWalletButton />
+                                </>
+                              )
+                            }
+                            // 卡片最底部的详细资料
+                            cardFooter={<CardFooter pool={pool} account={account} />}
                           />
-                          // <TokenPairImage
-                          //   primaryToken={pool.earningToken}
-                          //   secondaryToken={pool.stakingToken}
-                          //   width={64}
-                          //   height={64}
-                          // />
-                          // null
-                        }
-                        // 卡片顶部的年利率
-                        aprRow={<AprRow pool={pool} stakedBalance={pool?.userData?.stakedBalance} />}
-                        cardContent={
-                          // 卡片主内容区,中间的一大串,不包括顶部的年利率
-                          account ? (
-                            <CardActions pool={pool} stakedBalance={pool?.userData?.stakedBalance} />
-                          ) : (
-                            <>
-                              {/* 卡片主内容区的连接钱包按钮 */}
-                              <Text mb="10px" textTransform="uppercase" fontSize="12px" color="textSubtle" bold>
-                                {t('Start earning')}
-                              </Text>
-                              <ConnectWalletButton />
-                            </>
-                          )
-                        }
-                        // 卡片最底部的详细资料
-                        cardFooter={<CardFooter pool={pool} account={account} />}
-                      />
-                    ),
-                  )}
+                        ),
+                    )}
                 </CardLayout>
-              ) : (
+              ) 
+              : (
                 <Pool.PoolsTable>
                   {chosenPools.map((pool) =>
                     pool.vaultKey ? (

@@ -29,6 +29,7 @@ import {
 } from '@pancakeswap/uikit'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 
+import poolAddress from 'pages/poolAddress';
 import StepOne from './StepOne'
 import StepTwo from './StepTwo'
 import StepThree from './StepThree'
@@ -39,7 +40,6 @@ import ErrorMessage from '../nfts/ErrorMessage'
 
 import CreatePoolABI from '../pools/ABI/CreatePool.json'
 
-import poolAddress from 'pages/poolAddress';
 // const pools = allPool.pools
 
 const createPoolContractBsctest = poolAddress.bscTest;

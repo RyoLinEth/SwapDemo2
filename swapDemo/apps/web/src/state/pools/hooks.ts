@@ -108,7 +108,7 @@ export const usePoolsWithVault = () => {
   return temp
 }
 
-export const useDeserializedPoolByVaultKey = (vaultKey) => {
+export const useDeserializedPoolByVaultKey = (vaultKey: any) => {
   const vaultPoolWithKeySelector = useMemo(() => makeVaultPoolWithKeySelector(vaultKey), [vaultKey])
 
   return useSelector(vaultPoolWithKeySelector)
